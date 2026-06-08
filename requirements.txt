@@ -1,0 +1,5 @@
+# To-Do List Manager
+# No third-party dependencies required.
+# Uses only the Python 3 standard library (tkinter, json, csv, os, datetime).
+#
+# Requires: Python 3.8+
