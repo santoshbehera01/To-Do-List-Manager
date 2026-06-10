@@ -1,130 +1,124 @@
 # Project Documentation – To-Do List Manager
 
-## 1. Overview
+## 1. Project Overview
 
-**To-Do List Manager – Personal Productivity Dashboard** is a desktop
-application written entirely in Python 3 using the Tkinter GUI toolkit.
-It provides a modern dashboard interface for capturing, organizing, and
-tracking personal tasks, with persistent JSON storage and CSV export.
+The **To-Do List Manager** is a desktop-based productivity application developed using **Python** and **Tkinter**. It allows users to create, manage, track, and organize daily tasks through an intuitive dashboard interface.
 
-The project was designed as an internship-submission and
-portfolio-ready application that demonstrates:
+The application stores task information in **JSON format**, provides task statistics, and supports exporting records to **CSV** files.
 
-- Object-oriented application architecture
-- Modular, well-commented Python code
-- Modern UI design using only standard Tkinter widgets
-- Proper exception handling and input validation
-- File I/O with JSON and CSV
-- Zero third-party dependencies
+---
 
-## 2. Objectives
+## 2. Project Objectives
 
-1. Provide an intuitive interface for daily task management.
-2. Demonstrate professional-quality Tkinter UI design.
-3. Persist data reliably between sessions.
-4. Showcase clean, PEP 8-compliant Python code.
+- Develop a desktop-based task management system.
+- Implement task creation, tracking, and completion features.
+- Demonstrate Python GUI development using Tkinter.
+- Implement persistent data storage using JSON.
+- Provide a professional and user-friendly interface.
 
-## 3. Architecture
+---
 
-The application uses a single-file implementation organized around a
-central `ToDoApp` class that owns:
+## 3. System Architecture
 
-- **Data layer** — JSON read/write helpers (`load_tasks`, `save_tasks`)
-- **Layout layer** — sidebar, header, content, and status bar containers
-- **Page layer** — one render method per page (`page_dashboard`, etc.)
-- **Reusable UI helpers** — cards, buttons, treeviews, edit dialog
+The application follows a simple modular architecture:
 
-```
-┌────────────────────────────────────────────────────────────┐
-│  ToDoApp (Tk root)                                         │
-│  ┌──────────┐  ┌─────────────────────────────────────────┐ │
-│  │ Sidebar  │  │ Header                                  │ │
-│  │ (nav)    │  ├─────────────────────────────────────────┤ │
-│  │          │  │ Content (active page)                   │ │
-│  │          │  │                                         │ │
-│  └──────────┘  └─────────────────────────────────────────┘ │
-│                Status bar                                  │
-└────────────────────────────────────────────────────────────┘
+```text
+┌─────────────────────────────┐
+│         ToDoApp            │
+├─────────────────────────────┤
+│ User Interface (Tkinter)   │
+│ Dashboard & Navigation     │
+│ Task Management Module     │
+│ Statistics Module          │
+│ Export Module              │
+│ JSON Data Storage          │
+└─────────────────────────────┘
 ```
 
-## 4. Data Model
+Main Components:
 
-Each task is stored as a JSON object:
+- User Interface Layer
+- Task Management Layer
+- Data Storage Layer
+- Export & Reporting Layer
+
+---
+
+## 4. Core Functionalities
+
+| Module | Description |
+|----------|------------|
+| Dashboard | Displays task statistics and recent tasks |
+| Add Task | Create new tasks with priority and due date |
+| All Tasks | View all stored tasks |
+| Pending Tasks | Display incomplete tasks |
+| Completed Tasks | Display completed tasks |
+| Search Tasks | Search tasks using keywords |
+| Statistics | View productivity metrics |
+| Export Tasks | Export task records to CSV |
+
+---
+
+## 5. Data Storage
+
+Task records are stored in:
+
+```text
+data/tasks.json
+```
+
+Sample structure:
 
 ```json
 {
-    "title": "Complete Internship Project",
-    "description": "Finish To-Do List application",
-    "priority": "High",
-    "due_date": "2026-06-15",
-    "status": "Pending"
+  "title": "Complete Project",
+  "description": "Finish internship task",
+  "priority": "High",
+  "due_date": "2026-06-15",
+  "status": "Pending"
 }
 ```
 
-`data/tasks.json` is a JSON array of such objects and is created
-automatically on first launch.
+The JSON file is automatically created if it does not exist.
 
-## 5. Module / Function Reference
+---
 
-| Function                | Responsibility                                       |
-| ----------------------- | ---------------------------------------------------- |
-| `_ensure_data_storage`  | Creates `data/` and `tasks.json` if missing          |
-| `load_tasks`            | Reads tasks from JSON, handles read errors          |
-| `save_tasks`            | Writes tasks to JSON (auto-save)                     |
-| `_configure_ttk_style`  | Configures the modern Treeview / Combobox styling    |
-| `_build_layout`         | Builds sidebar, header, content, status bar          |
-| `_build_sidebar`        | Creates nav buttons with hover effects               |
-| `show_page`             | Switches active page and highlights nav button       |
-| `page_dashboard`        | Renders KPI cards + recent tasks                     |
-| `page_add_task`         | Renders the add-task form with validation            |
-| `page_all_tasks`        | Renders the full task table                          |
-| `page_pending`          | Filtered table — Pending only                        |
-| `page_completed`        | Filtered table — Completed only                      |
-| `page_search`           | Search by title + filter by priority                 |
-| `page_statistics`       | KPI cards, completion % bar, priority breakdown      |
-| `page_export`           | Exports tasks to CSV via native file dialog          |
-| `_open_edit_dialog`     | Modal dialog for editing a task                      |
+## 6. Validation & Error Handling
 
-## 6. Validation Rules
+The application performs:
 
-- Title cannot be empty.
-- Due date must follow `YYYY-MM-DD` (validated with `datetime.strptime`).
-- Priority must be one of: `High`, `Medium`, `Low`.
-- Status must be one of: `Pending`, `Completed`.
-- All errors are presented via friendly `messagebox` dialogs.
+- Empty field validation
+- Due date format validation (`YYYY-MM-DD`)
+- Priority validation
+- JSON file handling validation
+- User-friendly error messages using Tkinter dialogs
 
-## 7. Error Handling
+---
 
-- File I/O is wrapped in `try / except OSError` and
-  `json.JSONDecodeError`.
-- Missing data file triggers automatic creation rather than a crash.
-- User-facing errors use `messagebox.showerror` or `showwarning`.
+## 7. Technologies Used
 
-## 8. UI / UX Design
+| Category | Technology |
+|----------|------------|
+| Programming Language | Python 3 |
+| GUI Framework | Tkinter |
+| Data Storage | JSON |
+| Export Format | CSV |
+| Development Tool | Visual Studio Code |
+| Version Control | Git & GitHub |
 
-| Element              | Color (Hex) | Purpose                     |
-| -------------------- | ----------- | --------------------------- |
-| Sidebar              | `#1e293b`   | Persistent navigation       |
-| Sidebar active item  | `#2563eb`   | Current-page indicator      |
-| Header               | `#2563eb`   | Brand identity              |
-| Background           | `#f1f5f9`   | Page surface                |
-| Card                 | `#ffffff`   | Content container           |
-| Success              | `#10b981`   | Completion / save actions   |
-| Warning              | `#f59e0b`   | Pending tasks               |
-| Danger               | `#ef4444`   | High priority / delete      |
-| Status bar           | `#0f172a`   | Footer information          |
+---
 
-Typography: **Segoe UI** across all widgets.
+## 8. Future Enhancements
 
-## 9. Future Enhancements
+- Task Categories
+- Reminder Notifications
+- Calendar Integration
+- Dark Mode Support
+- Cloud Synchronization
+- PDF & Excel Export
 
-- Task categories / tags
-- Drag-and-drop reordering
-- Reminders & notifications
-- Cloud sync (Google Drive / Dropbox)
-- Light / Dark theme switching
-- Multi-user profiles
+---
 
-## 10. License
+## 9. Conclusion
 
-MIT License — free for personal, educational, and portfolio use.
+The To-Do List Manager demonstrates practical implementation of Python GUI development, JSON-based data persistence, task management operations, and modern desktop application design. The project serves as a professional internship submission and portfolio-ready application showcasing software development best practices.
