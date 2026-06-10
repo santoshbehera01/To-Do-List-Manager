@@ -123,7 +123,7 @@ TO-DO-LIST-MANAGER/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/santoshbehera01/To-Do-List-Manager.git
+git clone https://github.com/santoshbehera01/To-Do-List-Manager
 cd To-Do-List-Manager
 ```
 
@@ -222,11 +222,8 @@ This project demonstrates practical implementation of:
 ## Author
 
 **Santosh Kumar Behera**
-
 Intern ID: **CITS2854**
-
 Python Programming Intern
-
 CODTECH IT Solutions Pvt. Ltd.
 
 ---
