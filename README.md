@@ -226,7 +226,6 @@ This project demonstrates practical implementation of:
 Intern ID: **CITS2854**
 
 Python Programming Intern
-
 CODTECH IT Solutions Pvt. Ltd.
 
 ---
