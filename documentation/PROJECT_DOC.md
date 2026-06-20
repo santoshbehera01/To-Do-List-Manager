@@ -91,7 +91,7 @@ The application performs:
 - Due date format validation (`YYYY-MM-DD`)
 - Priority validation
 - JSON file handling validation
-- User-friendly error messages using Tkinter dialogs
+- User friendly error messages using Tkinter dialogs
 
 ---
 
