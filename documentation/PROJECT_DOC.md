@@ -10,7 +10,7 @@ The application stores task information in **JSON format**, provides task statis
 
 ## 2. Project Objectives
 
-- Develop a desktop-based task management system.
+- Develop a desktop based task management system.
 - Implement task creation, tracking, and completion features.
 - Demonstrate Python GUI development using Tkinter.
 - Implement persistent data storage using JSON.
