@@ -105,7 +105,7 @@ Provides:
 - Pending Task Count
 - Completed Task Count
 - Completion Percentage
-- Priority-wise Breakdown
+- Priority wise Breakdown
 
 ---
 
