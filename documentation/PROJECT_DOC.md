@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-The **To-Do List Manager** is a desktop-based productivity application developed using **Python** and **Tkinter**. It allows users to create, manage, track, and organize daily tasks through an intuitive dashboard interface.
+The **To-Do List Manager** is a desktop based productivity application developed using **Python** and **Tkinter**. It allows users to create, manage, track, and organize daily tasks through an intuitive dashboard interface.
 
 The application stores task information in **JSON format**, provides task statistics, and supports exporting records to **CSV** files.
 
