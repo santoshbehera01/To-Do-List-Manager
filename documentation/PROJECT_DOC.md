@@ -121,4 +121,4 @@ The application performs:
 
 ## 9. Conclusion
 
-The To-Do List Manager demonstrates practical implementation of Python GUI development, JSON-based data persistence, task management operations, and modern desktop application design. The project serves as a professional internship submission and portfolio-ready application showcasing software development best practices.
+The To-Do List Manager demonstrates practical implementation of Python GUI development, JSON based data persistence, task management operations, and modern desktop application design. The project serves as a professional internship submission and portfolio-ready application showcasing software development best practices.
